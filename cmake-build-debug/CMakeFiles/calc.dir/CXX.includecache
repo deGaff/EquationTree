@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/Stud/calc/Equation.cpp
+Equation.h
+E:/Stud/calc/Equation.h
+
+E:/Stud/calc/Equation.h
+string
+-
+memory
+-
+cmath
+-
+
+E:/Stud/calc/main.cpp
+iostream
+-
+Equation.h
+E:/Stud/calc/Equation.h
+
