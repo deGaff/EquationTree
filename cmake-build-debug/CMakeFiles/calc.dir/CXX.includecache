@@ -31,6 +31,8 @@ iostream
 E:/Stud/calc/main.cpp
 iostream
 -
+sstream
+-
 Equation.h
 E:/Stud/calc/Equation.h
 Matrix.h

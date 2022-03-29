@@ -15,7 +15,7 @@ int main() {
     auto mult_ptr = MakeMult(ptr, MakeVal(4.));
     auto dib_ptr = MakeDiv(ptr, MakeVal(3.));
     auto substr_ptr = MakeSubtr(ptr, MakeVal(3.));
-    auto deg_ptr = MakeDeg(ptr, MakeVal(3.));
+    auto deg_ptr = MakeDeg(ptr, MakeVal(3.2));
 
 
     std::cout << ptr << '\n'
@@ -24,8 +24,10 @@ int main() {
                 << substr_ptr << '\n'
                 << deg_ptr << '\n';
 
+    std::stringstream matrix_in("1 2 3 4");
+
     Matrix<int> matrix(2, 2);
-    std::cin >> matrix;
+    matrix_in >> matrix;
     auto matr_ptr = MakeMult(MakeVal(matrix), MakeVal(4));
     std::cout << matr_ptr << '\n';
     auto matr_ptr2 = MakeMult(MakeVal(5), matr_ptr);

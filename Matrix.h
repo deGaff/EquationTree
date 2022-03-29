@@ -60,11 +60,12 @@ std::istream& operator >> (std::istream& str, Matrix<T>& matrix) {
 
 template <typename T>
 std::ostream& operator << (std::ostream& str, const Matrix<T>& matrix) {
-    for (const auto& lines : matrix.data) {
-        for(const auto& cell : lines) {
-            str << cell << ' ';
+    for (std::size_t i = 0; i < matrix.m; ++i) {
+        for (std::size_t j = 0; j < matrix.n; ++j) {
+            str << matrix.data[i][j];
+            if(j!=matrix.n-1) str  << ' ';
         }
-        str << '\n';
+        if(i!=matrix.m-1) str << '|';
     }
     return str;
 }
@@ -72,11 +73,12 @@ std::ostream& operator << (std::ostream& str, const Matrix<T>& matrix) {
 template <typename T>
 std::string to_string(const Matrix<T>& matrix) {
     std::string ans;
-    for (const auto& lines : matrix.data) {
-        for(const auto& cell : lines) {
-            ans += std::to_string(cell) + ' ';
+    for (std::size_t i = 0; i < matrix.m; ++i) {
+        for (std::size_t j = 0; j < matrix.n; ++j) {
+            ans += std::to_string(matrix.data[i][j]);
+            if(j!=matrix.n-1) ans += ' ';
         }
-        ans += '\n';
+        if(i!=matrix.m-1) ans += '|';
     }
     return ans;
 }
