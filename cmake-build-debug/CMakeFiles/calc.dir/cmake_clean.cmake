@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/calc.dir/Equation.cpp.obj"
   "CMakeFiles/calc.dir/main.cpp.obj"
   "calc.exe"
   "calc.exe.manifest"

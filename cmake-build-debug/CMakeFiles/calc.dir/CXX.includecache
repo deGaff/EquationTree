@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-E:/Stud/calc/Equation.cpp
-Equation.h
-E:/Stud/calc/Equation.h
-
 E:/Stud/calc/Equation.h
 string
 -
@@ -17,9 +13,13 @@ memory
 -
 cmath
 -
+type_traits
+-
 
 E:/Stud/calc/main.cpp
 iostream
+-
+vector
 -
 Equation.h
 E:/Stud/calc/Equation.h

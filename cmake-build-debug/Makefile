@@ -128,30 +128,6 @@ calc/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/build
 .PHONY : calc/fast
 
-Equation.obj: Equation.cpp.obj
-.PHONY : Equation.obj
-
-# target to build an object file
-Equation.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/Equation.cpp.obj
-.PHONY : Equation.cpp.obj
-
-Equation.i: Equation.cpp.i
-.PHONY : Equation.i
-
-# target to preprocess a source file
-Equation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/Equation.cpp.i
-.PHONY : Equation.cpp.i
-
-Equation.s: Equation.cpp.s
-.PHONY : Equation.s
-
-# target to generate assembly for a file
-Equation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/Equation.cpp.s
-.PHONY : Equation.cpp.s
-
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -185,9 +161,6 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... calc
-	@echo ... Equation.obj
-	@echo ... Equation.i
-	@echo ... Equation.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

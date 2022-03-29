@@ -7,6 +7,7 @@
 #include <string>
 #include <memory>
 #include <cmath>
+#include <type_traits>
 
 namespace Equation {
     template <typename T>
@@ -39,62 +40,40 @@ namespace Equation {
         }
     };
 
-    template <typename T>
-    class Binary : public Base<T> {
-    private:
+    template <typename L, typename R, typename Func>
+    using ReturnType = typename std::result_of<Func(L,R)>::type;
+
+
+    template <typename L, typename R, typename Func>
+    class Binary : public Base<ReturnType<L, R, Func>> {
         const char symbol;
-        ExprPtr<T> lhs, rhs;
+    private:
+        ExprPtr<L> lhs; ExprPtr<R> rhs;
     public:
-        Binary(const char symbol, ExprPtr<T> lhs, ExprPtr<T> rhs) : symbol(symbol), lhs(lhs), rhs(rhs) {}
-        ExprPtr<T> GetLhs() const { return lhs; }
-        ExprPtr<T> GetRhs() const { return rhs; }
+        Binary(const char symbol,  ExprPtr<L> lhs, ExprPtr<R> rhs)
+        : symbol(symbol), lhs(lhs), rhs(rhs) {}
+        ExprPtr<L> GetLhs() const { return lhs; }
+        ExprPtr<R> GetRhs() const { return rhs; }
+        ReturnType<L, R, Func> Evaluate() const override {
+            return Func()(lhs->Evaluate(), rhs->Evaluate());
+        }
         std::string ToString() const override {
             return "(" + lhs->ToString() + ")" + symbol + "(" + rhs->ToString() + ")";
         }
     };
 
-    template <typename T>
-    class Sum : public Binary<T> {
-    public:
-        Sum(ExprPtr<T> lhs, ExprPtr<T> rhs) : Binary<T>('+', lhs, rhs) {}
-        T Evaluate() const override {
-            return Binary<T>::GetLhs()->Evaluate() + Binary<T>::GetRhs()->Evaluate();
+
+    template <typename L, typename R>
+    struct SUM {
+        auto operator () (const L lhs, const R rhs) const {
+            return lhs + rhs;
         }
     };
 
-    template <typename T>
-    class Subtr : public Binary<T> {
-    public:
-        Subtr(ExprPtr<T> lhs, ExprPtr<T> rhs) : Binary<T>('-', lhs, rhs) {}
-        T Evaluate() const override {
-            return Binary<T>::GetLhs()->Evaluate() - Binary<T>::GetRhs()->Evaluate();
-        }
-    };
-
-    template <typename T>
-    class Mult : public Binary<T> {
-    public:
-        Mult(ExprPtr<T> lhs, ExprPtr<T> rhs) : Binary<T>('*', lhs, rhs) {}
-        T Evaluate() const override {
-            return Binary<T>::GetLhs()->Evaluate() * Binary<T>::GetRhs()->Evaluate();
-        }
-    };
-
-    template <typename T>
-    class Div : public Binary<T> {
-    public:
-        Div(ExprPtr<T> lhs, ExprPtr<T> rhs) : Binary<T>('/', lhs, rhs) {}
-        T Evaluate() const override {
-            return Binary<T>::GetLhs()->Evaluate() / Binary<T>::GetRhs()->Evaluate();
-        }
-    };
-
-    template <typename T>
-    class Deg : public Binary<T> {
-    public:
-        Deg(ExprPtr<T> lhs, ExprPtr<T> rhs) : Binary<T>('^', lhs, rhs) {}
-        T Evaluate() const override {
-            return pow(Binary<T>::GetLhs()->Evaluate(), Binary<T>::GetRhs()->Evaluate());
+    template <typename L, typename R>
+    struct MULT {
+        auto operator () (const L lhs, const R rhs) const {
+            return lhs * rhs;
         }
     };
 
@@ -103,29 +82,17 @@ namespace Equation {
         return std::make_shared<Value<T>>(val);
     }
 
-    template <typename T>
-    ExprPtr<T> MakeSum(ExprPtr<T> lhs, ExprPtr<T> rhs) {
-        return std::make_shared<Sum<T>>(lhs, rhs);
+    template <typename L, typename R>
+    ExprPtr<L> MakeSum(ExprPtr<L> lhs, ExprPtr<R> rhs) {
+        return std::make_shared<Binary<L,R,SUM<L,R>>>
+                ('+', lhs, rhs);
     }
 
-    template <typename T>
-    ExprPtr<T> MakeSubtr(ExprPtr<T> lhs, ExprPtr<T> rhs) {
-        return std::make_shared<Subtr<T>>(lhs, rhs);
-    }
 
-    template <typename T>
-    ExprPtr<T> MakeMult(ExprPtr<T> lhs, ExprPtr<T> rhs) {
-        return std::make_shared<Mult<T>>(lhs, rhs);
-    }
-
-    template <typename T>
-    ExprPtr<T> MakeDiv(ExprPtr<T> lhs, ExprPtr<T> rhs) {
-        return std::make_shared<Div<T>>(lhs, rhs);
-    }
-
-    template <typename T>
-    ExprPtr<T> MakeDeg(ExprPtr<T> lhs, ExprPtr<T> rhs) {
-        return std::make_shared<Deg<T>>(lhs, rhs);
+    template <typename L, typename R>
+    ExprPtr<L> MakeMult(ExprPtr<L> lhs, ExprPtr<R> rhs) {
+        return std::make_shared<Binary<L,R,MULT<L,R>>>
+                ('+', lhs, rhs);
     }
 
     template <typename T>
