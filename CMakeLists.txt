@@ -3,4 +3,4 @@ project(calc)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(calc main.cpp Equation.h)
+add_executable(calc main.cpp Equation.h Matrix.h BinaryOperations.h)

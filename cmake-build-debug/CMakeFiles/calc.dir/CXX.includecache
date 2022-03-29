@@ -6,21 +6,33 @@
 
 #IncludeRegexTransform: 
 
+E:/Stud/calc/BinaryOperations.h
+cmath
+-
+
 E:/Stud/calc/Equation.h
 string
 -
+istream
+-
 memory
 -
-cmath
--
 type_traits
+-
+BinaryOperations.h
+E:/Stud/calc/BinaryOperations.h
+
+E:/Stud/calc/Matrix.h
+vector
+-
+iostream
 -
 
 E:/Stud/calc/main.cpp
 iostream
 -
-vector
--
 Equation.h
 E:/Stud/calc/Equation.h
+Matrix.h
+E:/Stud/calc/Matrix.h
 

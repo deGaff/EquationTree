@@ -82,7 +82,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="E:/Stud/calc/BinaryOperations.h">
+			<Option target="calc"/>
+		</Unit>
 		<Unit filename="E:/Stud/calc/Equation.h">
+			<Option target="calc"/>
+		</Unit>
+		<Unit filename="E:/Stud/calc/Matrix.h">
 			<Option target="calc"/>
 		</Unit>
 		<Unit filename="E:/Stud/calc/main.cpp">
