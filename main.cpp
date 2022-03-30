@@ -1,13 +1,11 @@
 #include <iostream>
 #include <sstream>
 #include "Equation.h"
+#include "EquationParser.h"
 #include "Matrix.h"
 
-/*
- *        *
- *      4   +
- *        1   2
- */
+//TODO MAKE ParseUtil (string_view)
+
 
 int main() {
     using namespace Equation;

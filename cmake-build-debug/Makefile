@@ -128,6 +128,30 @@ calc/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/build
 .PHONY : calc/fast
 
+EquationParser.obj: EquationParser.cpp.obj
+.PHONY : EquationParser.obj
+
+# target to build an object file
+EquationParser.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/EquationParser.cpp.obj
+.PHONY : EquationParser.cpp.obj
+
+EquationParser.i: EquationParser.cpp.i
+.PHONY : EquationParser.i
+
+# target to preprocess a source file
+EquationParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/EquationParser.cpp.i
+.PHONY : EquationParser.cpp.i
+
+EquationParser.s: EquationParser.cpp.s
+.PHONY : EquationParser.s
+
+# target to generate assembly for a file
+EquationParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\calc.dir\build.make CMakeFiles/calc.dir/EquationParser.cpp.s
+.PHONY : EquationParser.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -161,6 +185,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... calc
+	@echo ... EquationParser.obj
+	@echo ... EquationParser.i
+	@echo ... EquationParser.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

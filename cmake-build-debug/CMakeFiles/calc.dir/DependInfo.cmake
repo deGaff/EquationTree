@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "E:/Stud/calc/EquationParser.cpp" "E:/Stud/calc/cmake-build-debug/CMakeFiles/calc.dir/EquationParser.cpp.obj"
   "E:/Stud/calc/main.cpp" "E:/Stud/calc/cmake-build-debug/CMakeFiles/calc.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

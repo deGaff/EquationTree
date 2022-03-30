@@ -22,6 +22,20 @@ type_traits
 BinaryOperations.h
 E:/Stud/calc/BinaryOperations.h
 
+E:/Stud/calc/EquationParser.cpp
+EquationParser.h
+E:/Stud/calc/EquationParser.h
+
+E:/Stud/calc/EquationParser.h
+iostream
+-
+string
+-
+string_view
+-
+Equation.h
+E:/Stud/calc/Equation.h
+
 E:/Stud/calc/Matrix.h
 vector
 -
@@ -35,6 +49,8 @@ sstream
 -
 Equation.h
 E:/Stud/calc/Equation.h
+EquationParser.h
+E:/Stud/calc/EquationParser.h
 Matrix.h
 E:/Stud/calc/Matrix.h
 

@@ -88,6 +88,12 @@
 		<Unit filename="E:/Stud/calc/Equation.h">
 			<Option target="calc"/>
 		</Unit>
+		<Unit filename="E:/Stud/calc/EquationParser.cpp">
+			<Option target="calc"/>
+		</Unit>
+		<Unit filename="E:/Stud/calc/EquationParser.h">
+			<Option target="calc"/>
+		</Unit>
 		<Unit filename="E:/Stud/calc/Matrix.h">
 			<Option target="calc"/>
 		</Unit>

@@ -8,6 +8,7 @@
 #include <istream>
 #include <memory>
 #include <type_traits>
+#include <unordered_map>
 
 #include "BinaryOperations.h"
 
@@ -55,6 +56,7 @@ namespace Equation {
     public:
         Binary(const char symbol,  ExprPtr<L> lhs, ExprPtr<R> rhs)
         : symbol(symbol), lhs(lhs), rhs(rhs) {}
+
         ExprPtr<L> GetLhs() const { return lhs; }
         ExprPtr<R> GetRhs() const { return rhs; }
         ReturnType<L, R, Func> Evaluate() const override {
@@ -96,14 +98,13 @@ namespace Equation {
 
     template <typename L, typename R>
     ExprPtr<ReturnType<L, R, DEG<L,R>>> MakeDeg(ExprPtr<L> lhs, ExprPtr<R> rhs) {
-        return std::make_shared<Binary<L,R,DEG<L,R>>>
+        return std::make_shared<Binary<L, R, DEG<L, R>>>
                 ('^', lhs, rhs);
     }
 
-    template <typename T>
-    ExprPtr<T> ParseExpression(std::istream& str) {
-        //TODO MAKE ParseUtil (string_view)
-    }
+    const static std::unordered_map<char, char> priorities = {
+            {'+', 0}, {'-', 0}, {'*', 1}, {'/', 1}, {'^', 2}
+        }; //TODO mb add brackets here
 }
 
 
